@@ -182,7 +182,12 @@ img {
 }
 
 .torta-central {
-    width: 350px;
+    width: 490px;
+}
+
+.torta-central img {
+    height: 300px;
+    object-fit: cover;
 }
 
 .sello-aniversario {
@@ -236,9 +241,73 @@ img {
     height: 20px;
 }
 
+.recomendaciones {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.titulo-recomendaciones h2 {
+    font-size: 40px;
+    color: #5D4037;
+    margin-bottom: 5px;
+}
+
+.subtitulo-gris {
+    font-style: italic;
+    color: #B0BEC5;
+    font-size: 18px;
+    margin-bottom: 50px;
+}
+
+.tarjetas-recomendaciones {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.tarjeta-producto {
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tarjeta-producto img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.tarjeta-producto h3 {
+    font-size: 26px;
+    color: #5D4037;
+    margin-bottom: 10px;
+}
+
+.tarjeta-producto .precio {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.tarjeta-producto .descripcion {
+    font-size: 14px;
+    color: #5D4037;
+    line-height: 1.4;
+    padding: 0 10px;
+}
 
 /* CONFIGURACIONES PARA MEDIA (CELULAR TABLET ETCC)*/
 
+@media (max-width: 768px) {
+    .tarjetas-recomendaciones {
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+    }
+}
 
 @media (max-width: 768px) {
     .footer-columnas {
