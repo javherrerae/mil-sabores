@@ -1,13 +1,174 @@
 <!doctype html>
 <html lang="en">
-    <main>
-      <section>
-        <h1>COMPRA TORTAS</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio amet eligendi fuga optio! Ullam animi eaque facilis vero consectetur laudantium blanditiis! Officia animi minus ullam nihil molestias dolorum dignissimos suscipit.</p>
-      </section>
-    </main>
-    <footer>
-      PASTELERIA MIL SABORES
-    </footer>
-  </body>
-</html>
+    <head>
+      <!-- CSS de Bootstrap | !!!!Consultarle al profe el jueves si podemos usar Bootstrap!!!! -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Pastelería Mil Sabores - Inicio</title>
+
+      <!-- Importación de fuentes-->
+       <link rel="preconnect" href="https://fonts.googleapis.com">
+       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+       <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Pacifico&display=swap" rel="stylesheet">
+
+      <!-- Hoja de estilos-->
+       <link rel="stylesheet" href="css/estilos.css">
+    </head>
+    
+    <body>
+
+        <!-- Encabezado principal -->
+         <header class="cabecera-principal">
+         
+            <!-- Buscador -->
+            <div class="caja-buscador">
+                <input type="text" placeholder="Buscar productos..." class="input-buscador">
+                <img src="img/icono-buscar.png" alt="Buscar" class="icono-lupa"> 
+            </div>
+
+            <!-- Logo en el centro -->
+            <div class="logo">
+                <img src="img/logo-imagen.png" alt="Logo Pastelería Mil sabores" class="img-logo">
+            </div>
+
+            <!-- Cuenta y carrito -->
+             <div class="caja-acciones">
+                <a href="login.html" class="enlace-accion">
+                    Mi Cuenta
+                    <img src="img/icono-cuenta.png" alt="Usuario" class="icono-accion">
+                </a>
+                <a href="carrito.html" class="enlace-accion">
+                  Carrito
+                  <img src="img/icono-carrito.png" alt="Carrito" class="icono-accion">
+                </a>
+             </div>
+        </header>
+
+        <!-- Navegación de categorias -->
+        <nav class="menu-categorias">
+          <a href="index.html" class="icono-home">
+            <img src="img/icono-home.png" alt="Inicio">
+          </a>
+          <ul>
+              <li><a href="catalogo.html">Tortas</a></li>
+              <li><a href="catalogo.html">Postres</a></li>
+              <li><a href="catalogo.html">Sin Azucar</a></li>
+              <li><a href="catalogo.html">Tradicional</a></li>
+              <li><a href="catalogo.html">Sin Gluten</a></li>
+              <li><a href="catalogo.html">Veganas</a></li>
+              <li><a href="catalogo.html">Especiales</a></li>
+              <li><a href="catalogo.html">Promociones</a></li>
+          </ul>
+        </nav>
+
+        <main>
+          <!-- Sección Titulo principal -->
+           <section class="hero">
+              <!-- Texto y botones-->
+               <div class="hero-texto">
+                  <h1>Celebra la Dulzura de tu Vida</h1>
+                  <p class="subtitulo">Tortas y postres para cada ocasión especial</p>
+
+                  <div class="caja-botones">
+                      <a href="catalogo.html" class="btn-marron">Ver productos</a>
+                      <a href="personalizar-torta.html" class="btn-borde">Personaliza tu torta</a>
+                  </div>
+               </div>
+
+               <!-- Imagen de la torta-->
+                <div class="hero-imagen">
+                    <img src="img/torta-imagen.png" alt="Torta de Chocolate" class="torta-inicio">
+               <!-- ToDo: Falta el sello de los 50 años de la wea-->
+                </div>
+           </section>
+           
+           <!--!!!! TODO LO DE AQUI PARA ABAJO ESTÁ COPIADO DE BOOTSTRAP, HAY QUE REVISARLO !!!!-->
+           <!-- ToDo: Arreglar el carrusel pq las fotos están desalineadas -->
+           <!-- Sección Recomendaciones del Mes -->
+            <section class="recomendaciones text-center py-5">
+              <h2>Recomendaciones del Mes</h2>
+              <p class="subtitulo mb-5">Agosto: Cosecha de Frutos Rojos</p>
+
+            <!-- Contenedor del Carrusel -->
+            <div id="carruselRecomendaciones" class="carousel slide col-md-8 mx-auto" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    
+                    <!-- Tarjeta 1 -->
+                    <div class="carousel-item active">
+                        <img src="img/torta1.jpg" class="d-block mx-auto rounded mb-3" alt="Cosecha de corazones" style="height: 250px; object-fit: cover;">
+                        <h3>Cosecha de corazones</h3>
+                        <p class="fw-bold fs-5 mb-1">$ 29.990</p>
+                        <p class="px-5 text-muted">Bizcocho de Vainilla, mermelada de frutilla y toques de licor de ambar. Adornada con varios frutos rojos.</p>
+                    </div>
+
+                    <!-- Tarjeta 2 -->
+                    <div class="carousel-item">
+                        <img src="img/torta2.jpg" class="d-block mx-auto rounded mb-3" alt="Princesa del verano" style="height: 250px; object-fit: cover;">
+                        <h3>Princesa del verano</h3>
+                        <p class="fw-bold fs-5 mb-1">$ 34.990</p>
+                        <p class="px-5 text-muted">Bizcocho de Vainilla con mermelada de arándanos y frambuesas. Adornada con nuestra salsa de frutilla junto a frutos rojos y merengue.</p>
+                    </div>
+
+                    <!-- Tarjeta 3 -->
+                    <div class="carousel-item">
+                        <img src="img/torta3.jpg" class="d-block mx-auto rounded mb-3" alt="Dulce sol" style="height: 250px; object-fit: cover;">
+                        <h3>Dulce sol</h3>
+                        <p class="fw-bold fs-5 mb-1">$ 24.990</p>
+                        <p class="px-5 text-muted">Bizcocho de vainilla con crema pastelera y manjar. Adornada con variados frutos rojos.</p>
+                    </div>
+
+                </div>
+                
+                <!-- Botones de Navegación Lateral -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#carruselRecomendaciones" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carruselRecomendaciones" data-bs-slide="next">
+                    <span class="carousel-control-next-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
+                    <span class="visually-hidden">Siguiente</span>
+                </button>
+            </div>
+        </section>
+        </main>
+
+        <!-- Pie de página -->
+        <footer class="pie-pagina">
+            
+            <!-- Texto del centro -->
+             <div class="copyright">
+                <p>&copy; 2026 Pastelería Mil Sabores. Todos los derechos reservados.</p>
+             </div>
+
+             <!-- Columnas del pie de pagina -->
+             <div class="footer-columnas">
+                <div class="columna">
+                  <h4>Contáctanos</h4>
+                  <p>contacto@milsabores.cl</p>
+                  <p>+56 9 1234 5678</p>
+                </div>
+
+                <div class="columna">
+                  <h4>Encuentranos en:</h4>
+                  <div class="redes-sociales">
+                    <span>Facebook</span>
+                    <img src="img/icono-facebook.png" alt="Facebook" class="icono-red">
+                  </div>
+                  <div class="redes-sociales">
+                    <span>Instagram</span>
+                    <img src="img/icono-instagram.png" alt="Instagram" class="icono-red"></a>
+                  </div>
+                </div>
+
+                <div class="columna">
+                  <h4>Ubicación</h4>
+                  <p>Av. Pasteleros #123</p>
+                  <p>Mall Cenco Costanera</p>
+                </div>
+              </div>
+        </footer>
+
+        <!-- js de Bootstrap -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
