@@ -91,7 +91,7 @@ img {
     display: flex;
     align-items: center;
     border-radius: 30px;
-    padding: 10px 20px;
+    padding: 10px 30px;
     margin-bottom: 30px;
     border: 1px solid #5D4037;
 }
@@ -109,7 +109,7 @@ img {
     gap: 25px;
     padding: 0;
     margin: 0;
-    justify-content: center;
+    justify-content: space-evenly; 
     align-items: center;
 }
 
@@ -117,10 +117,12 @@ img {
     text-decoration: none;
     color: #5D4037;
     font-weight: bold;
+    font-size: 16px;
+    transition: color 0.3s ease;
 }
 
 .menu-categorias a:hover {
-    color: #8B4513;
+    color: #8B4513; 
 }
 
 .hero {
@@ -422,8 +424,135 @@ img {
 }
 
 
+/*
+//////////////////////////////////////////
+        ESTILOS PARA PRODUCTOS
+//////////////////////////////////////////
+*/
+
+.migas-de-pan {
+    font-size: 14px;
+    color: #5D4037;
+    margin-right: 15px;
+}
+
+.migas-de-pan a {
+    color: #5D4037;
+    text-decoration: none;
+}
+
+.migas-de-pan span {
+    font-weight: bold;
+}
+
+.layout-catalogo {
+    display: flex;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.barra-filtros {
+    width: 250px;
+    background-color: transparent;
+    border: 2px solid #D7CCC8;
+    border-radius: 20px;
+    padding: 30px 20px;
+    height: fit-content;
+}
+
+.barra-filtros h3 {
+    font-size: 22px;
+    color: #5D4037;
+    margin-bottom: 25px;
+    font-family: 'Lato', sans-serif;
+}
+
+.grupo-filtro {
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.grupo-filtro h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #5D4037;
+    font-weight: normal;
+}
+
+.grupo-filtro label {
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #5D4037;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.vista-productos {
+    flex: 1;
+}
+
+.titulo-catalogo {
+    text-align: center;
+    font-size: 45px;
+    color: #5D4037;
+    margin-bottom: 40px;
+}
+
+.grilla-productos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.tarjeta-catalogo {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.img-placeholder {
+    width: 100%;
+    height: 250px;
+    background-color: #D3D3D3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.img-placeholder img {
+    max-width: 80%;
+    height: auto;
+}
+
+.tarjeta-catalogo h3 {
+    font-size: 26px;
+    color: #5D4037;
+    margin-bottom: 5px;
+}
+
+.tarjeta-catalogo .precio {
+    font-size: 16px;
+    font-weight: bold;
+    color: #5D4037;
+}
 
 /* CONFIGURACIONES PARA MEDIA (CELULAR TABLET ETCC)*/
+
+@media (max-width: 900px) {
+    .layout-catalogo {
+        flex-direction: column; /* Pasa los filtros arriba en pantallas chicas */
+    }
+    .barra-filtros {
+        width: 100%;
+    }
+}
 
 @media (max-width: 768px) {
     .tarjetas-recomendaciones {
