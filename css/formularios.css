@@ -1,0 +1,126 @@
+/* //////////////////////////////////////
+        ESTILOS DE FORMULARIOS O CAJAS
+   ////////////////////////////////////// */
+
+.contenedor-principal {
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+}
+
+.caja-formulario {
+    background-color: white;
+    width: 100%;
+    max-width: 500px;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(93, 64, 55, 0.1);
+    border: 1px solid #FFC0CB;
+}
+
+.titulo-centrado {
+    text-align: center;
+    color: #5D4037;
+    font-size: 32px;
+    margin-bottom: 5px;
+}
+
+.subtitulo-centrado {
+    text-align: center;
+    color: #B0BEC5;
+    margin-bottom: 30px;
+}
+
+.grupo-input {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.grupo-input label {
+    font-weight: bold;
+    color: #5D4037;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.grupo-input input,
+.grupo-input textarea {
+    padding: 12px 15px;
+    border: 1px solid #B0BEC5;
+    border-radius: 10px;
+    font-size: 14px;
+    outline: none;
+    color: #5D4037;
+    font-family: 'Lato', sans-serif;
+}
+
+.grupo-input textarea {
+    resize: vertical;
+}
+
+.grupo-input input:focus,
+.grupo-input textarea:focus {
+    border-color: #8B4513;
+}
+
+.nota-campo {
+    font-size: 12px;
+    color: #8B4513;
+    margin-top: 5px;
+}
+
+.btn-bloque {
+    width: 100%;
+    display: block;
+    text-align: center;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.btn-bloque:hover {
+    background-color: #5D4037;
+}
+
+.enlace-alternativo {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.enlace-alternativo a {
+    color: #8B4513;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+
+/*Los mensajes ocultos son por errores o advertencias
+de sistema, deberíamos ponerlos con un script pa que
+se vean mas bonitos con bootstrap o así, pero no 
+priorizamos eso por ahora*/
+.mensaje-oculto {
+    display: none;
+}
+
+.mensaje-error {
+    display: block;
+    background-color: #ffebee;
+    color: #c62828;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    border: 1px solid #ef9a9a;
+}
+
+.mensaje-exito {
+    display: block;
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    border: 1px solid #a5d6a7;
+}

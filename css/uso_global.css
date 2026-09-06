@@ -1,0 +1,235 @@
+/* ///////////////////////////////////////
+            VARIABLES GLOBALES Y RESET
+   /////////////////////////////////////// */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #FFF5E1;
+    background-image: url('../img/fondo-svg.svg');
+    /* Ruta ajustada */
+    background-size: cover;
+    color: #5D4037;
+    padding: 0 5%;
+}
+
+/* Tipografías (ponemos todads juntas para no repetir código*/
+h1,
+h2,
+h3 {
+    font-family: 'Pacifico', cursive;
+    font-weight: normal;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.migas-de-pan {
+    font-size: 14px;
+    color: #5D4037;
+    margin-right: 15px;
+}
+
+.migas-de-pan a {
+    color: #5D4037;
+    text-decoration: none;
+}
+
+.migas-de-pan span {
+    font-weight: bold;
+}
+
+/* ///////////////////////////////////////
+            "BOTONES" GLOBALES
+   /////////////////////////////////////// */
+.btn-marron {
+    background-color: #8B4513;
+    color: white;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-borde {
+    background-color: transparent;
+    color: #5D4037;
+    text-decoration: none;
+    padding: 12px 25px;
+    border: 2px solid #5D4037;
+    border-radius: 25px;
+    font-weight: bold;
+}
+
+.btn-borde:hover {
+    background-color: #5D4037;
+    color: white;
+}
+
+/* ///////////////////////////////////////
+            CABECERA Y NAVEGACIÓN
+   /////////////////////////////////////// */
+.cabecera-principal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.caja-buscador {
+    display: flex;
+    align-items: center;
+    border: 1px solid #5D4037;
+    border-radius: 20px;
+    padding: 5px 15px;
+    background-color: transparent;
+}
+
+.input-buscador {
+    border: none;
+    background: none;
+    outline: none;
+    color: #5D4037;
+}
+
+.icono-lupa {
+    width: 35px;
+    height: 20px;
+    margin-left: 10px;
+}
+
+.img-logo {
+    width: 150px;
+}
+
+.caja-acciones {
+    display: flex;
+    gap: 20px;
+}
+
+.enlace-accion {
+    text-decoration: none;
+    color: #5D4037;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.icono-accion {
+    width: 25px;
+    height: 25px;
+}
+
+.menu-categorias {
+    background-color: #FFC0CB;
+    display: flex;
+    align-items: center;
+    border-radius: 30px;
+    padding: 10px 30px;
+    margin-bottom: 30px;
+    border: 1px solid #5D4037;
+}
+
+.icono-home img {
+    width: 30px;
+    height: 30px;
+    margin-right: 20px;
+}
+
+.menu-categorias ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    gap: 25px;
+    padding: 0;
+    margin: 0;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+
+.menu-categorias a {
+    text-decoration: none;
+    color: #5D4037;
+    font-weight: bold;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.menu-categorias a:hover {
+    color: #8B4513;
+}
+
+@media (max-width: 768px) {
+    .cabecera-principal {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .menu-categorias ul {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+}
+
+/* ///////////////////////////////////////
+                PIE DE PÁGINA
+   /////////////////////////////////////// */
+.pie-pagina {
+    margin-top: 50px;
+    padding: 40px 0;
+    text-align: center;
+    color: #5D4037;
+}
+
+.copyright {
+    margin-bottom: 40px;
+    color: #8B4513;
+}
+
+.footer-columnas {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.columna h4 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #5D4037;
+    font-weight: normal;
+}
+
+.columna p {
+    margin-bottom: 8px;
+}
+
+.redes-sociales {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    margin-bottom: 8px;
+}
+
+.icono-red {
+    width: 20px;
+    height: 20px;
+}
+
+@media (max-width: 768px) {
+    .footer-columnas {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+}
