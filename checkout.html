@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+    <head>
+      <!-- CSS de Bootstrap | !!!!Consultarle al profe el jueves si podemos usar Bootstrap!!!! -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Pastelería Mil Sabores - Inicio</title>
+      <link rel="icon" type="image/x-icon" href="img/logo-pagina.ico">
+
+      <!-- Importación de fuentes-->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Pacifico&display=swap" rel="stylesheet">
+
+      <!-- Hoja de estilos-->
+      <link rel="stylesheet" href="css/estilos.css">
+    </head>
+    
+    <body>
+
+      <!-- Encabezado principal -->
+      <header class="cabecera-principal">
+
+        <!-- Buscador -->
+        <div class="caja-buscador">
+          <input type="text" placeholder="Buscar productos..." class="input-buscador">
+          <img src="img/icono-buscar.png" alt="Buscar" class="icono-lupa"> 
+        </div>
+
+        <!-- Logo en el centro -->
+        <div class="logo">
+          <img src="img/logo-imagen.png" alt="Logo Pastelería Mil sabores" class="img-logo">
+        </div>
+
+        <!-- Cuenta y carrito -->
+        <div class="caja-acciones">
+          <a href="login.html" class="enlace-accion">
+            Mi Cuenta
+            <img src="img/icono-cuenta.png" alt="Usuario" class="icono-accion">
+          </a>
+          <a href="carrito.html" class="enlace-accion">
+            Carrito
+            <img src="img/icono-carrito.png" alt="Carrito" class="icono-accion">
+          </a>
+        </div>
+      </header>
+
+      <!-- Navegación de categorias -->
+      <nav class="menu-categorias">
+          <a href="index.html" class="icono-home">
+              <img src="img/icono-home.png" alt="Inicio">
+          </a>
+          <ul>
+              <li><a href="products.html">Catálogo</a></li>
+              <li><a href="quienes-somos.html">Quiénes Somos</a></li>
+              <li><a href="contacto.html">Contacto</a></li>
+              <li><a href="">Blog</a></li>
+              <li><a href="">FAQ</a></li>
+              <li><a href="perfil.html">Mi Perfil</a></li>
+          </ul>
+      </nav>
+
+        <!-- Contenedores principales del checout -->
+        <main class="contenedor-principal" style="align-items: flex-start; gap: 30px; flex-wrap: wrap;">
+        
+        <!-- Columna Izquierda: Formulario de Envío y Pago -->
+        <section class="caja-formulario" style="flex: 2; min-width: 60%;">
+            <h2 class="titulo-centrado">Finalizar Compra</h2>
+            <p class="subtitulo-centrado">Ingresa tus datos para el despacho</p>
+
+            <form id="formCheckout" novalidate>
+                
+                <h3 style="color: #8B4513; margin-bottom: 15px; font-size: 20px;">1. Datos de Envío</h3>
+                
+                <div class="grupo-input">
+                    <label for="nombreCheckout">Nombre Quien Recibe *</label>
+                    <input type="text" id="nombreCheckout" required placeholder="Ej: Javier Herrera Espinoza">
+                </div>
+
+                <div class="grupo-input">
+                    <label for="direccionCheckout">Dirección de Despacho *</label>
+                    <input type="text" id="direccionCheckout" required placeholder="Ej: Av. La Dehesa 1234, Lo Barnechea">
+                </div>
+
+                <div class="grupo-input">
+                    <label for="fechaCheckout">Fecha de Entrega Preferida *</label>
+                    <input type="date" id="fechaCheckout" required>
+                </div>
+
+                <hr style="border: 1px solid #FFC0CB; margin: 30px 0;">
+
+                <h3 style="color: #8B4513; margin-bottom: 15px; font-size: 20px;">2. Método de Pago</h3>
+
+                <div class="grupo-input">
+                    <label for="tarjetaCheckout">Número de Tarjeta (16 dígitos) *</label>
+                    <input type="text" id="tarjetaCheckout" required placeholder="1234 5678 1234 5678" maxlength="19">
+                </div>
+
+                <div style="display: flex; gap: 20px;">
+                    <div class="grupo-input" style="flex: 1;">
+                        <label for="vencimientoCheckout">Vencimiento *</label>
+                        <input type="text" id="vencimientoCheckout" required placeholder="MM/AA" maxlength="5">
+                    </div>
+                    <div class="grupo-input" style="flex: 1;">
+                        <label for="cvvCheckout">CVV (3 dígitos) *</label>
+                        <input type="text" id="cvvCheckout" required placeholder="123" maxlength="3">
+                    </div>
+                </div>
+
+                <div id="mensajeCheckout" class="mensaje-oculto"></div>
+
+                <button type="submit" class="btn-marron btn-bloque" style="font-size: 18px; padding: 15px;">Confirmar y Pagar</button>
+            </form>
+        </section>
+
+        <!-- Columna Derecha: Resumen de la Orden (Se llena con JS) -->
+        <aside class="caja-formulario" style="flex: 1; min-width: 300px; background-color: #FFF5E1;">
+            <h3 style="color: #5D4037; margin-bottom: 20px; font-family: 'Pacifico', cursive;">Tu Pedido</h3>
+            
+            <div id="listaProductosCheckout" style="margin-bottom: 20px;">
+                <!-- Los productos se inyectarán aquí -->
+            </div>
+            
+            <hr style="border: 1px solid #D7CCC8; margin: 15px 0;">
+            
+            <div style="display: flex; justify-content: space-between; font-weight: bold; font-size: 22px; color: #5D4037;">
+                <span>Total a Pagar:</span>
+                <span id="totalCheckout">$0</span>
+            </div>
+        </aside>
+
+    </main>
+
+    <!-- Pie de página (Igual al index) -->
+    <!-- ... (Footer) ... -->
+
+    <script src="js/checkout.js"></script>
+</body>
+</html>
