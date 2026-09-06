@@ -48,20 +48,18 @@
 
       <!-- Navegación de categorias -->
       <nav class="menu-categorias">
-        <a href="index.html" class="icono-home">
-          <img src="img/icono-home.png" alt="Inicio">
-        </a>
-        <ul>
-          <li><a href="products.html">Tortas</a></li>
-          <li><a href="products.html">Postres</a></li>
-          <li><a href="products.html">Sin Azucar</a></li>
-          <li><a href="products.html">Tradicional</a></li>
-          <li><a href="products.html">Sin Gluten</a></li>
-          <li><a href="products.html">Veganas</a></li>
-          <li><a href="products.html">Especiales</a></li>
-          <li><a href="products.html">Promociones</a></li>
-        </ul>
-    </nav>
+          <a href="index.html" class="icono-home">
+              <img src="img/icono-home.png" alt="Inicio">
+          </a>
+          <ul>
+              <li><a href="products.html">Catálogo</a></li>
+              <li><a href="quienes-somos.html">Quiénes Somos</a></li>
+              <li><a href="contacto.html">Contacto</a></li>
+              <li><a href="">Blog</a></li>
+              <li><a href="">FAQ</a></li>
+              <li><a href="perfil.html">Mi Perfil</a></li>
+          </ul>
+      </nav>
 
     <!-- Contenedor Principal del Catálogo -->
     <main class="layout-catalogo">
@@ -91,55 +89,34 @@
             </div>
         </aside>
 
-        <!-- Grilla de Productos -->
-        <section class="vista-productos">
-            <h2 class="titulo-catalogo">Tortas</h2>
-            
-            <div class="grilla-productos" id="contenedorProductos">
+        <div class="grilla-productos" id="contenedorProductos">
                 
-                <!-- Producto 1 (Circular, Mediano, Tradicional) -->
-                <div class="tarjeta-catalogo" data-forma="circular" data-tamano="mediano" data-diet="tradicional">
-                    <div class="img-placeholder"><img src="img/torta-ph1.png" alt="Dulce Piña"></div>
-                    <h3 class="fuente-artistica">Dulce Piña</h3>
-                    <p class="precio">$ 22.990</p>
-                </div>
-
-                <!-- Producto 2 (Circular, Grande, Tradicional) -->
-                <div class="tarjeta-catalogo" data-forma="circular" data-tamano="grande" data-diet="tradicional">
-                    <div class="img-placeholder"><img src="img/torta-ph2.png" alt="Torta Amor"></div>
-                    <h3 class="fuente-artistica">Torta Amor</h3>
-                    <p class="precio">$ 24.990</p>
-                </div>
-
-                <!-- Producto 3 (Circular, Pequeño, Sin Azúcar) -->
-                <div class="tarjeta-catalogo" data-forma="circular" data-tamano="pequeno" data-diet="sin-azucar">
-                    <div class="img-placeholder"><img src="img/torta-ph3.png" alt="Merengue Lúcuma"></div>
-                    <h3 class="fuente-artistica">Merengue Lúcuma</h3>
-                    <p class="precio">$ 20.990</p>
-                </div>
-
-                <!-- Producto 4 (Cuadrada, Mediano, Veganas) -->
-                <div class="tarjeta-catalogo" data-forma="cuadrada" data-tamano="mediano" data-diet="veganas">
-                    <div class="img-placeholder"><img src="img/torta-ph4.png" alt="Selva Negra Vegana"></div>
-                    <h3 class="fuente-artistica">Selva Negra</h3>
-                    <p class="precio">$ 25.990</p>
-                </div>
-
-                <!-- Producto 5 (Circular, Mediano, Sin Gluten) -->
-                <div class="tarjeta-catalogo" data-forma="circular" data-tamano="mediano" data-diet="sin-gluten">
-                    <div class="img-placeholder"><img src="img/torta-ph5.png" alt="Milhojas"></div>
-                    <h3 class="fuente-artistica">Milhojas</h3>
-                    <p class="precio">$ 23.990</p>
-                </div>
-
-                <!-- Producto 6 (Cuadrada, Grande, Sin Azúcar) -->
-                <div class="tarjeta-catalogo" data-forma="cuadrada" data-tamano="grande" data-diet="sin-azucar">
-                    <div class="img-placeholder"><img src="img/torta-ph6.png" alt="Tres Leches"></div>
-                    <h3 class="fuente-artistica">Tres Leches</h3>
-                    <p class="precio">$ 21.990</p>
-                </div>
-
+                <!-- Producto 1 -->
+            <div class="tarjeta-catalogo" data-id="p1" data-nombre="Dulce Piña" data-precio="22990" data-imagen="img/torta-ph1.png" data-forma="circular" data-tamano="mediano" data-diet="tradicional">
+                <div class="img-placeholder"><img src="img/torta-ph1.png" alt="Dulce Piña"></div>
+                <h3 class="fuente-artistica">Dulce Piña</h3>
+                <a href="detalle-producto.html?id=TT001" style="text-decoration: none; color: inherit;">Torta Circular de Vainilla</a>
+                <p class="precio">$ 22.990</p>
+                <button class="btn-marron btn-agregar" style="margin-top: 15px; width: 100%;">Añadir al Carrito</button>
             </div>
+
+            <!-- Producto 2 -->
+            <div class="tarjeta-catalogo" data-id="p2" data-nombre="Torta Amor" data-precio="24990" data-imagen="img/torta-ph2.png" data-forma="circular" data-tamano="grande" data-diet="tradicional">
+                <div class="img-placeholder"><img src="img/torta-ph2.png" alt="Torta Amor"></div>
+                <h3 class="fuente-artistica">Torta Amor</h3>
+                <p class="precio">$ 24.990</p>
+                <button class="btn-marron btn-agregar" style="margin-top: 15px; width: 100%;">Añadir al Carrito</button>
+            </div>
+
+            <!-- Producto 3 -->
+            <div class="tarjeta-catalogo" data-id="p3" data-nombre="Merengue Lúcuma" data-precio="20990" data-imagen="img/torta-ph3.png" data-forma="circular" data-tamano="pequeno" data-diet="sin-azucar">
+                <div class="img-placeholder"><img src="img/torta-ph3.png" alt="Merengue Lúcuma"></div>
+                <h3 class="fuente-artistica">Merengue Lúcuma</h3>
+                <p class="precio">$ 20.990</p>
+                <button class="btn-marron btn-agregar" style="margin-top: 15px; width: 100%;">Añadir al Carrito</button>
+            </div>
+
+          </div>
         </section>
 
     </main>
