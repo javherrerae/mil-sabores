@@ -26,16 +26,7 @@
 
 .caja-botones {
     display: flex;
-    gap: 20px;
-    margin-left: 100px;
-}
-
-.hero-imagen {
-    width: 45%;
-    display: flex;
     justify-content: center;
-    position: relative;
-    margin-right: 10px;
 }
 
 .torta-central {
@@ -45,13 +36,6 @@
 .torta-central img {
     height: 300px;
     object-fit: cover;
-}
-
-.sello-aniversario {
-    width: 120px;
-    position: absolute;
-    top: -20px;
-    right: 30px;
 }
 
 .recomendaciones {
@@ -321,4 +305,163 @@
     font-weight: bold;
     cursor: pointer;
     color: #5D4037;
+}
+
+/* ///////////////////////////////////////
+                 BLOG
+   /////////////////////////////////////// */
+
+.lista-articulos {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    width: 100%;
+    align-items: center;
+}
+
+.articulo-completo {
+    width: 100%;
+    max-width: 800px;
+    padding-bottom: 40px;
+    border-bottom: 2px solid #FFC0CB;
+}
+
+.articulo-completo:last-child {
+    border-bottom: none; 
+}
+
+.etiqueta-autor {
+    display: inline-block;
+    background-color: transparent; 
+    color: #8B4513;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.titulo-articulo {
+    font-size: 32px;
+    color: #5D4037;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.img-articulo {
+    width: 100%;
+    height: 300px;
+    background-color: #D3D3D3; 
+    border-radius: 10px;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.img-articulo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.articulo-completo p {
+    font-size: 16px;
+    color: #5D4037;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.lista-consejos {
+    margin-left: 20px;
+    margin-bottom: 20px;
+    color: #5D4037;
+    line-height: 1.8;
+}
+
+.lista-consejos li {
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    .titulo-articulo {
+        font-size: 28px;
+    }
+    .img-articulo {
+        height: 200px;
+    }
+}
+
+/* ///////////////////////////////////////
+                 FAQ
+   /////////////////////////////////////// */
+
+.bloque-faq {
+    margin-bottom: 35px;
+}
+
+.pregunta-faq {
+    font-size: 20px;
+    color: #8B4513;
+    margin-bottom: 12px;
+    font-family: 'Lato', sans-serif; 
+    font-weight: bold;
+}
+
+.respuesta-faq {
+    font-size: 16px;
+    color: #5D4037;
+    line-height: 1.8;
+    margin-left: 20px;
+}
+
+@media (max-width: 768px) {
+    .pregunta-faq {
+        font-size: 18px;
+    }
+    .respuesta-faq {
+        margin-left: 0;
+    }
+}
+
+/* ///////////////////////////////////////
+                 GUIA PORCIONEWS
+   /////////////////////////////////////// */
+
+   .contenedor-tabla {
+    overflow-x: auto;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.tabla-porciones {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    background-color: transparent;
+}
+
+.tabla-porciones th {
+    padding: 15px;
+    background-color: #FFC0CB;
+    color: #5D4037;
+    font-size: 18px;
+}
+
+.tabla-porciones th:first-child {
+    border-top-left-radius: 10px;
+}
+
+.tabla-porciones th:last-child {
+    border-top-right-radius: 10px;
+}
+
+.tabla-porciones td {
+    padding: 15px;
+    border-bottom: 1px solid #FFC0CB;
+    color: #5D4037;
+    font-size: 16px;
+}
+
+.tabla-porciones tr:last-child td {
+    border-bottom: none;
 }
