@@ -8,16 +8,6 @@
     padding: 40px 0;
 }
 
-.caja-formulario {
-    background-color: white;
-    width: 100%;
-    max-width: 500px;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 10px 20px rgba(93, 64, 55, 0.1);
-    border: 1px solid #FFC0CB;
-}
-
 .titulo-centrado {
     text-align: center;
     color: #5D4037;

@@ -6,11 +6,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const txtDescuento = document.getElementById('resumenDescuento');
     const txtTotal = document.getElementById('resumenTotal');
 
-    // Cargar los productos al iniciar
     renderizarCarrito();
 
     function renderizarCarrito() {
-        // Leer localStorage
         let carrito = JSON.parse(localStorage.getItem('carritoMilSabores')) || [];
         
         cuerpoCarrito.innerHTML = ''; // Limpiar la tabla
@@ -23,7 +21,6 @@ document.addEventListener('DOMContentLoaded', function() {
         mensajeVacio.style.display = 'none';
         let subtotalGlobal = 0;
 
-        // Dibujar cada fila
         carrito.forEach((producto, index) => {
             const subtotalProducto = producto.precio * producto.cantidad;
             subtotalGlobal += subtotalProducto;
@@ -49,7 +46,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function actualizarTotales(subtotal) {
-        // Por ahora sin descuento, luego integraremos la validación de usuario logueado
         const descuento = 0; 
         const total = subtotal - descuento;
 
@@ -58,7 +54,6 @@ document.addEventListener('DOMContentLoaded', function() {
         txtTotal.textContent = `$${total.toLocaleString('es-CL')}`;
     }
 
-    // Funciones globales (se asignan a window para que los onclick del HTML puedan leerlas)
     window.modificarCantidad = function(index, cambio) {
         let carrito = JSON.parse(localStorage.getItem('carritoMilSabores'));
         carrito[index].cantidad += cambio;
