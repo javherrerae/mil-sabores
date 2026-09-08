@@ -28,11 +28,19 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        mostrarMensaje('exito', '¡Inicio de sesión exitoso! Redirigiendo a tu perfil...');
-        
-        setTimeout(() => {
-            window.location.href = "perfil.html";
-        }, 2000);
+        let usuarios = JSON.parse(localStorage.getItem('usuariosMilSabores')) || [];
+        const usuarioValido = usuarios.find(user => user.email === email && user.password === password);
+
+        if (usuarioValido) {
+            localStorage.setItem('sesionActiva', JSON.stringify(usuarioValido));
+            mostrarMensaje('exito', '¡Inicio de sesión exitoso! Redirigiendo a tu perfil...');
+            
+            setTimeout(() => {
+                window.location.href = "perfil.html";
+            }, 2000);
+        } else {
+            mostrarMensaje('error', 'Correo o contraseña incorrectos. Verifica tus datos o regístrate.');
+        }
     });
 
     function mostrarMensaje(tipo, textoHTML) {

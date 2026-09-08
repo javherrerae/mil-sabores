@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const fechaNac = document.getElementById('fechaNac').value;
         const password = document.getElementById('password').value;
         const confirmPassword = document.getElementById('confirmPassword').value;
-        const codigoPromo = document.getElementById('codigoPromo').value.trim().toUpperCase(); // Normalizamos a mayúsculas
+        const codigoPromo = document.getElementById('codigoPromo').value.trim().toUpperCase();
 
         mensajeSistema.className = '';
         mensajeSistema.innerHTML = '';
@@ -28,6 +28,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (password !== confirmPassword) {
             mostrarMensaje('error', 'Las contraseñas no coinciden.');
+            return;
+        }
+
+        let usuarios = JSON.parse(localStorage.getItem('usuariosMilSabores')) || [];
+        const usuarioExiste = usuarios.find(user => user.email === email);
+        
+        if (usuarioExiste) {
+            mostrarMensaje('error', 'Este correo ya está registrado. Por favor, inicia sesión.');
             return;
         }
 
@@ -63,6 +71,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         mostrarMensaje('exito', mensajeFinal);
+
+        usuarios.push({ nombre: nombre, email: email, password: password });
+        localStorage.setItem('usuariosMilSabores', JSON.stringify(usuarios));
+
+        setTimeout(() => {
+            window.location.href = "login.html";
+        }, 4000);
         
     });
 
