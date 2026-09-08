@@ -1,0 +1,6 @@
+/* *nota : Ahora el estilos lo vamos a usar solo cómo un índice
+pq si no se llena de variables y nos perdemos.*/
+@import url('uso_global.css');
+@import url('formularios.css');
+@import url('tienda.css');
+@import url('usuario.css');

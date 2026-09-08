@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pastelería Mil Sabores - Inicio</title>
+  <link rel="icon" type="image/x-icon" href="img/logo-pagina.ico">
+
+  <!-- Importación de fuentes-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Pacifico&display=swap"
+    rel="stylesheet">
+
+  <!-- Hoja de estilos-->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+
+  <!-- Encabezado principal -->
+  <header class="cabecera-principal">
+
+    <!-- Buscador -->
+    <div class="caja-buscador">
+      <input type="text" placeholder="Buscar productos..." class="input-buscador">
+      <img src="img/icono-buscar.png" alt="Buscar" class="icono-lupa">
+    </div>w
+
+    <!-- Logo en el centro -->
+    <div class="logo">
+      <img src="img/logo-imagen.png" alt="Logo Pastelería Mil sabores" class="img-logo">
+    </div>
+
+    <!-- Cuenta y carrito -->
+    <div class="caja-acciones">
+      <a href="login.html" class="enlace-accion">
+        Mi Cuenta
+        <img src="img/icono-cuenta.png" alt="Usuario" class="icono-accion">
+      </a>
+      <a href="carrito.html" class="enlace-accion">
+        Carrito
+        <img src="img/icono-carrito.png" alt="Carrito" class="icono-accion">
+      </a>
+    </div>
+  </header>
+
+  <!-- Navegación de categorias -->
+  <nav class="menu-categorias">
+    <a href="index.html" class="icono-home">
+      <img src="img/icono-home.png" alt="Inicio">
+    </a>
+    <ul>
+      <li><a href="products.html">Catálogo</a></li>
+      <li><a href="tabla_porciones.html">Guía de Porciones</a></li>
+      <li><a href="quienes-somos.html">Quiénes Somos</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="perfil.html">Mi Perfil</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- Main: Blog -->
+    <main class="contenedor-principal" style="flex-direction: column; align-items: center; padding-top: 20px;">
+
+      <div style="text-align: center; max-width: 800px; margin-bottom: 40px;">
+        <h2 class="titulo-centrado" style="font-size: 45px;">El Rincón del Pastelero</h2>
+        <p style="font-size: 18px; line-height: 1.6; color: #5D4037;">
+          Descubre los mejores consejos, recetas y técnicas de repostería. Todo el contenido de esta sección
+          es creado exclusivamente por los talentosos <strong>estudiantes de Gastronomía de Duoc UC</strong>.
+        </p>
+      </div>
+
+      <div class="lista-articulos">
+
+        <!-- Artículo 1 -->
+        <article class="articulo-completo">
+          <span class="etiqueta-autor">Camila V. - Estudiante Duoc UC</span>
+          <h3 class="titulo-articulo">El secreto para un bizcocho esponjoso</h3>
+          <div class="img-articulo"><img src="img/blog1.png" alt="Bizcocho Perfecto"></div>
+
+          <p>La clave no está solo en batir las claras a punto de nieve, sino en la forma en la que integramos los
+            ingredientes secos. Muchos principiantes cometen el error de usar la batidora eléctrica para mezclar la
+            harina, lo que desarrolla el gluten y deja la masa dura.</p>
+          <p><strong>Mis recomendaciones:</strong></p>
+          <ul class="lista-consejos">
+            <li>Tamiza la harina al menos dos veces antes de usarla.</li>
+            <li>Usa una espátula de silicona (mezquino) para integrar la harina con movimientos envolventes, de abajo
+              hacia arriba.</li>
+            <li>Nunca abras la puerta del horno antes de los primeros 25 minutos, o el bizcocho se hundirá en el centro.
+            </li>
+          </ul>
+        </article>
+
+        <!-- Artículo 2 -->
+        <article class="articulo-completo">
+          <span class="etiqueta-autor">Matías R. - Estudiante Duoc UC</span>
+          <h3 class="titulo-articulo">Decoración con manga: Nivel Principiante</h3>
+          <div class="img-articulo"><img src="img/blog2.png" alt="Decoración con manga"></div>
+
+          <p>¿Tus decoraciones quedan temblorosas? El pulso no es el único factor, la postura de tus manos y la
+            consistencia de la crema son fundamentales para lograr rosetones perfectos en tus tortas tradicionales.</p>
+          <p><strong>Sigue estos 3 pasos:</strong></p>
+          <ul class="lista-consejos">
+            <li><strong>Postura:</strong> Tu mano dominante (la que escribe) debe ir en la parte superior de la manga
+              torciendo el plástico para hacer presión. Tu otra mano solo debe guiar suavemente la boquilla.</li>
+            <li><strong>Temperatura:</strong> Si sientes que la crema está muy blanda, el calor de tus manos la está
+              derritiendo. Métela 10 minutos al refrigerador antes de seguir decorando.</li>
+            <li><strong>Práctica:</strong> Antes de decorar la torta real, practica tus rosetones sobre un papel
+              mantequilla. ¡Puedes raspar la crema y volver a meterla a la manga sin desperdiciar nada!</li>
+          </ul>
+        </article>
+
+      </div>
+    </main>
+
+    <!-- Pie de página -->
+    <footer class="pie-pagina">
+
+      <!-- Texto del centro -->
+      <div class="copyright">
+        <p>&copy; 2026 Pastelería Mil Sabores. Todos los derechos reservados.</p>
+      </div>
+
+      <!-- Columnas del pie de pagina -->
+      <div class="footer-columnas">
+        <div class="columna">
+          <h4>Contáctanos</h4>
+          <p>contacto@milsabores.cl</p>
+          <p>+56 9 1234 5678</p>
+        </div>
+
+        <div class="columna">
+          <h4>Encuentranos en:</h4>
+          <div class="redes-sociales">
+            <span>Facebook</span>
+            <img src="img/icono-facebook.png" alt="Facebook" class="icono-red">
+          </div>
+          <div class="redes-sociales">
+            <span>Instagram</span>
+            <img src="img/icono-instagram.png" alt="Instagram" class="icono-red"></a>
+          </div>
+        </div>
+
+        <div class="columna">
+          <h4>Ubicación</h4>
+          <p>Av. Pasteleros #123</p>
+          <p>Mall Cenco Costanera</p>
+        </div>
+      </div>
+    </footer>
+</body>
+</html>
