@@ -1,4 +1,6 @@
+// Aplica filtros al catálogo y agrega productos al carrito persistido.
 document.addEventListener('DOMContentLoaded', function() {
+    // Conecta todos los filtros con la función que actualiza el catálogo.
     const checkboxes = document.querySelectorAll('.filtro-cb');
     const productos = document.querySelectorAll('.tarjeta-catalogo');
 
@@ -7,10 +9,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function filtrarProductos() {
+        // Reúne los valores seleccionados en cada grupo de filtros.
         const formasMarcadas = Array.from(document.querySelectorAll('.cb-forma:checked')).map(cb => cb.value);
         const tamanosMarcados = Array.from(document.querySelectorAll('.cb-tamano:checked')).map(cb => cb.value);
         const dietMarcadas = Array.from(document.querySelectorAll('.cb-diet:checked')).map(cb => cb.value);
 
+        // Oculta o muestra cada tarjeta según los filtros activos.
         productos.forEach(producto => {
             const formaProducto = producto.getAttribute('data-forma');
             const tamanoProducto = producto.getAttribute('data-tamano');
@@ -31,6 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 const botonesAgregar = document.querySelectorAll('.btn-agregar');
 
+// Registra la acción de agregar productos al carrito persistido.
 botonesAgregar.forEach(boton => {
     boton.addEventListener('click', function(evento) {
         const tarjeta = evento.target.closest('.tarjeta-catalogo');
@@ -43,6 +48,7 @@ botonesAgregar.forEach(boton => {
             cantidad: 1
         };
 
+        // Reutiliza la línea existente o crea una nueva si es la primera compra.
         let carrito = JSON.parse(localStorage.getItem('carritoMilSabores')) || [];
 
         const indexExistente = carrito.findIndex(item => item.id === producto.id);

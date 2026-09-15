@@ -1,5 +1,6 @@
+// Registra nuevos usuarios y calcula sus beneficios de bienvenida.
 document.addEventListener('DOMContentLoaded', function() {
-    
+    // Obtiene el formulario de registro y su área de mensajes.
     const formulario = document.getElementById('formRegistro');
     const mensajeSistema = document.getElementById('mensajeSistema');
 
@@ -16,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
         mensajeSistema.className = '';
         mensajeSistema.innerHTML = '';
 
+        // Valida los datos obligatorios y la coincidencia de las contraseñas.
         if (nombre === '' || email === '' || fechaNac === '' || password === '' || confirmPassword === '') {
             mostrarMensaje('error', 'Por favor, completa todos los campos obligatorios (*).');
             return;
@@ -31,6 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
+        // Evita duplicar cuentas y prepara la lista de usuarios almacenada.
         let usuarios = JSON.parse(localStorage.getItem('usuariosMilSabores')) || [];
         const usuarioExiste = usuarios.find(user => user.email === email);
         
@@ -48,6 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
             edad--;
         }
 
+        // Calcula los beneficios aplicables según edad, promoción y correo.
         let beneficios = [];
 
         if (edad >= 50) {
@@ -70,6 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
             mensajeFinal += `<p>Bienvenido a la comunidad de Mil Sabores.</p>`;
         }
 
+        // Guarda la cuenta y comunica el resultado antes de ir al login.
         mostrarMensaje('exito', mensajeFinal);
 
         usuarios.push({ nombre: nombre, email: email, password: password });
@@ -82,6 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function mostrarMensaje(tipo, textoHTML) {
+        // Muestra el resultado del registro con el estilo correspondiente.
         mensajeSistema.innerHTML = textoHTML;
         if (tipo === 'error') {
             mensajeSistema.className = 'mensaje-error';

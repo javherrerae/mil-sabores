@@ -1,5 +1,6 @@
+// Valida la solicitud de recuperación de contraseña.
 document.addEventListener('DOMContentLoaded', function() {
-    
+    // Obtiene el formulario y el contenedor de respuesta.
     const formRecuperar = document.getElementById('formRecuperar');
     const mensajeRecuperar = document.getElementById('mensajeRecuperar');
 
@@ -11,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
         mensajeRecuperar.className = '';
         mensajeRecuperar.innerHTML = '';
 
+        // Comprueba que el correo exista y tenga un formato válido.
         if (email === '') {
             mostrarMensaje('error', 'Por favor, ingresa tu correo electrónico.');
             return;
@@ -28,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function mostrarMensaje(tipo, textoHTML) {
+        // Muestra el resultado de la solicitud de recuperación.
         mensajeRecuperar.innerHTML = textoHTML;
         if (tipo === 'error') {
             mensajeRecuperar.className = 'mensaje-error';

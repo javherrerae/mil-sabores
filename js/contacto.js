@@ -1,5 +1,6 @@
+// Valida y procesa el formulario de contacto.
 document.addEventListener('DOMContentLoaded', function() {
-    
+    // Obtiene el formulario y el contenedor de mensajes de respuesta.
     const formContacto = document.getElementById('formContacto');
     const mensajeSistema = document.getElementById('mensajeSistemaContacto');
 
@@ -14,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
         mensajeSistema.className = '';
         mensajeSistema.innerHTML = '';
 
+        // Valida los campos obligatorios, el correo y la longitud de la consulta.
         if (nombre === '' || email === '' || asunto === '' || mensaje === '') {
             mostrarMensaje('error', 'Por favor, completa todos los campos obligatorios (*).');
             return;
@@ -36,6 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function mostrarMensaje(tipo, textoHTML) {
+        // Presenta el mensaje de error o confirmación al cliente.
         mensajeSistema.innerHTML = textoHTML;
         if (tipo === 'error') {
             mensajeSistema.className = 'mensaje-error';

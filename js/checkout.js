@@ -1,10 +1,12 @@
+// Valida el checkout, calcula el total y confirma el pedido del cliente.
 document.addEventListener('DOMContentLoaded', function() {
-    
+    // Carga el resumen de productos y calcula el total del pedido.
     const listaProductos = document.getElementById('listaProductosCheckout');
     const txtTotal = document.getElementById('totalCheckout');
     let carrito = JSON.parse(localStorage.getItem('carritoMilSabores')) || [];
     let totalGlobal = 0;
 
+    // Desactiva el envío si no existen productos para comprar.
     if (carrito.length === 0) {
         listaProductos.innerHTML = '<p style="color: red;">Tu carrito está vacío.</p>';
         document.querySelector('button[type="submit"]').disabled = true;
@@ -23,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
         txtTotal.textContent = `$${totalGlobal.toLocaleString('es-CL')}`;
     }
 
+    // Configura la validación del formulario de pago y entrega.
     const formCheckout = document.getElementById('formCheckout');
     const mensajeSistema = document.getElementById('mensajeCheckout');
 
@@ -38,6 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
         mensajeSistema.className = '';
         mensajeSistema.innerHTML = '';
 
+        // Comprueba que los datos obligatorios estén completos y sean válidos.
         if (nombre === '' || direccion === '' || fecha === '' || tarjeta === '' || cvv === '') {
             mostrarMensaje('error', 'Por favor, completa todos los datos de envío y pago.');
             return;
@@ -63,6 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
+        // Confirma el pedido, vacía el carrito y redirige al historial.
         mostrarMensaje('exito', '¡Pago aprobado! Tu pedido ha sido confirmado. Redirigiendo a tu historial...');
         
         localStorage.removeItem('carritoMilSabores');
@@ -73,6 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function mostrarMensaje(tipo, textoHTML) {
+        // Muestra el resultado de la validación con el estilo correspondiente.
         mensajeSistema.innerHTML = textoHTML;
         if (tipo === 'error') {
             mensajeSistema.className = 'mensaje-error';

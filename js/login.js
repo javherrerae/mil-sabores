@@ -1,5 +1,6 @@
+// Comprueba las credenciales guardadas e inicia la sesión del cliente.
 document.addEventListener('DOMContentLoaded', function() {
-    
+    // Obtiene el formulario y el área destinada a los mensajes.
     const formularioLogin = document.getElementById('formLogin');
     const mensajeLogin = document.getElementById('mensajeLogin');
 
@@ -12,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
         mensajeLogin.className = '';
         mensajeLogin.innerHTML = '';
 
+        // Valida los campos antes de buscar las credenciales guardadas.
         if (email === '' || password === '') {
             mostrarMensaje('error', 'Por favor, ingresa tu correo y contraseña.');
             return;
@@ -28,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
+        // Compara los datos ingresados con los usuarios almacenados localmente.
         let usuarios = JSON.parse(localStorage.getItem('usuariosMilSabores')) || [];
         const usuarioValido = usuarios.find(user => user.email === email && user.password === password);
 
@@ -44,6 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function mostrarMensaje(tipo, textoHTML) {
+        // Muestra el resultado del inicio de sesión con su estilo visual.
         mensajeLogin.innerHTML = textoHTML;
         if (tipo === 'error') {
             mensajeLogin.className = 'mensaje-error';

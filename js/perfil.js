@@ -1,10 +1,12 @@
+// Protege la página y permite administrar los datos de la sesión actual.
 const sesion = localStorage.getItem('sesionActiva');
+// Redirige a usuarios no autenticados antes de cargar la información privada.
 if (!sesion) {
     window.location.replace('login.html');
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-
+    // Carga los datos de la sesión en los campos visibles del perfil.
     const datosUsuario = JSON.parse(sesion);
 
     const inputNombre = document.getElementById('nombrePerfil');
@@ -13,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (inputEmail) inputEmail.value = datosUsuario.email;
 
     const btnCerrarSesion = document.getElementById('btnCerrarSesion');
+    // Elimina la sesión local y vuelve a la página principal.
     if (btnCerrarSesion) {
         btnCerrarSesion.addEventListener('click', function(evento) {
             evento.preventDefault();
@@ -24,6 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const formPerfil = document.getElementById('formPerfil');
     const mensajeSistema = document.getElementById('mensajePerfil');
 
+    // Valida los cambios realizados en los datos personales.
     if (formPerfil) {
         formPerfil.addEventListener('submit', function(evento) {
             evento.preventDefault();
@@ -61,6 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function mostrarMensaje(tipo, textoHTML) {
+        // Informa el resultado de la actualización del perfil.
         mensajeSistema.innerHTML = textoHTML;
         if (tipo === 'error') {
             mensajeSistema.className = 'mensaje-error';
