@@ -20,11 +20,11 @@ function Navegacion() {
                         {/* CLICKER A RUTA CATOLOGO */}
                     <li><a href="/catalogo">Catálogo</a></li>
                     <li><a href="/Tabla_porciones">Guía de Porciones</a></li>
-                    <li><a href="quienes-somos.html">Quiénes Somos</a></li>
-                    <li><a href="contacto.html">Contacto</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
-                    <li><a href="perfil.html">Mi Perfil</a></li>
+                    <li><a href="/Quienes-somos">Quiénes Somos</a></li>
+                    <li><a href="/Contacto">Contacto</a></li>
+                    <li><a href="/Blog">Blog</a></li>
+                    <li><a href="/Faq">FAQ</a></li>
+                    <li><a href="/Perfil">Mi Perfil</a></li>
                 </ul>
             </nav>
 
