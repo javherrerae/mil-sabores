@@ -1,13 +1,12 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
+
+import { Routes, Route } from 'react-router-dom'
+
 import Header from './components/header'
 import Navegacion from './components/navegacion'
 import Footer from './components/footer'
+
 import Home from './Pages/Home'
 import Catalogo from './Pages/Catalogo'
-import {Routes,Route} from 'react-router-dom'
 import Tabla_porciones from './Pages/Tabla_porciones'
 import Quienes_somos from './Pages/Quienes_somos'
 import Contacto from './Pages/Contacto'
@@ -16,25 +15,33 @@ import Faq from './Pages/Faq'
 import Perfil from './Pages/Perfil'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-    <Header></Header>
-    <Navegacion></Navegacion>
-    <Routes>
-      <Route path='/' element={<Home></Home>}></Route>
-      <Route path='/catalogo' element={<Catalogo></Catalogo>}></Route>
-      <Route path='/tabla_porciones' element={<Tabla_porciones></Tabla_porciones>}></Route>
-      <Route path='/Quienes-somos' element={<Quienes_somos></Quienes_somos>}></Route>
-      <Route path='/Contacto' element={<Contacto></Contacto>}></Route>
-      <Route path='/Blog' element={<Blog></Blog>}></Route>
-      <Route path='/Faq' element={<Faq> </Faq>}></Route>
-      <Route path='Perfil' element={<Perfil></Perfil>}></Route>
-    </Routes>
+      <Header />
+      <Navegacion />
 
-    <Footer></Footer>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/catalogo" element={<Catalogo />} />
+        <Route path="/tabla_porciones" element={<Tabla_porciones />} />
+        <Route path="/Quienes-somos" element={<Quienes_somos />} />
+        <Route path="/Contacto" element={<Contacto />} />
+        <Route path="/Blog" element={<Blog />} />
+        <Route path="/Faq" element={<Faq />} />
+        <Route path="/Perfil" element={<Perfil />} />
 
+        <Route
+          path="*"
+          element={
+            <main className="container py-5 text-center">
+              <h1>Página no encontrada</h1>
+              <p>La página solicitada no existe.</p>
+            </main>
+          }
+        />
+      </Routes>
+
+      <Footer />
     </>
   )
 }
