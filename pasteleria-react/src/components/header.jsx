@@ -1,5 +1,8 @@
 import '../css/estilos.css'
 import '../css/bootstrap.min.css'
+import { Link } from 'react-router-dom'
+import ContadorCarrito from './ContadorCarrito'
+import Buscador from './Buscador'
 
 function Header() {
 
@@ -9,22 +12,21 @@ function Header() {
             <header className="cabecera-principal">
 
                 {/* Caja buscador */}
-                <div className="caja-buscador">
+                        <div className="Buscador">
 
-                    <input
-                        type="text"
-                        placeholder="Buscar productos..."
-                        className="input-buscador"
-                    />
+                        <input
+                            type="text"
+                            placeholder="Buscar productos..."
+                            className="input-buscador"
+                        />
 
-                    <img
-                        src="/img/icono-buscar.png"
-                        alt="Buscar"
-                        className="icono-lupa"
-                    />
+                        <img
+                            src="/img/icono-buscar.png"
+                            alt="Buscar"
+                            className="icono-lupa"
+                        />
 
-                </div>
-
+                        </div>
                 {/* Logo */}
                 <div className="logo">
 
@@ -36,30 +38,36 @@ function Header() {
 
                 </div>
 
-                {/* Acciones */}
-                <div className="caja-acciones">
+             
+                        {/* Acciones */}
+                        <div className="caja-acciones">
 
-                    <a href="login.html" className="enlace-accion">
-                        Mi Cuenta
+                        {/* Mi Cuenta */}
+                        <Link to="/Perfil" className="enlace-accion">
+                            Mi Cuenta
 
-                        <img
+                            <img
                             src="/img/icono-cuenta.png"
                             alt="Usuario"
                             className="icono-accion"
-                        />
-                    </a>
+                            />
+                        </Link>
 
-                    <a href="carrito.html" className="enlace-accion">
-                        Carrito
+                        {/* Carrito */}
+                        <Link to="/carrito" className="enlace-accion">
+                            Carrito
 
-                        <img
+                            <img
                             src="/img/icono-carrito.png"
                             alt="Carrito"
                             className="icono-accion"
-                        />
-                    </a>
+                            />
 
-                </div>
+                            <ContadorCarrito />
+                        </Link>
+
+                        </div>
+
 
             </header>
         </>

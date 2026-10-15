@@ -13,6 +13,7 @@ import Contacto from './Pages/Contacto'
 import Blog from './Pages/Blog'
 import Faq from './Pages/Faq'
 import Perfil from './Pages/Perfil'
+import Carrito from './Pages/Carrito'
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <Route path="/Blog" element={<Blog />} />
         <Route path="/Faq" element={<Faq />} />
         <Route path="/Perfil" element={<Perfil />} />
+        <Route path="/carrito" element={<Carrito />} />
 
         <Route
           path="*"
