@@ -1,4 +1,3 @@
-
 import { Routes, Route } from 'react-router-dom'
 
 import Header from './components/header'
@@ -14,13 +13,15 @@ import Blog from './Pages/Blog'
 import Faq from './Pages/Faq'
 import Perfil from './Pages/Perfil'
 import Carrito from './Pages/Carrito'
+import Login from './Pages/Login'
+import Registro from './Pages/Registro'
+import RecuperarPassword from './Pages/RecuperarPassword'
 
 function App() {
   return (
     <>
       <Header />
       <Navegacion />
-
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/catalogo" element={<Catalogo />} />
@@ -31,18 +32,16 @@ function App() {
         <Route path="/Faq" element={<Faq />} />
         <Route path="/Perfil" element={<Perfil />} />
         <Route path="/carrito" element={<Carrito />} />
-
-        <Route
-          path="*"
-          element={
-            <main className="container py-5 text-center">
-              <h1>Página no encontrada</h1>
-              <p>La página solicitada no existe.</p>
-            </main>
-          }
-        />
+        <Route path="/login" element={<Login />} />
+        <Route path="/registro" element={<Registro />} />
+        <Route path="/recuperar-password" element={<RecuperarPassword />} />
+        <Route path="*" element={
+          <main className="container py-5 text-center">
+            <h1>Página no encontrada</h1>
+            <p>La página solicitada no existe.</p>
+          </main>
+        } />
       </Routes>
-
       <Footer />
     </>
   )

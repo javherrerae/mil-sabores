@@ -9,7 +9,7 @@
 
 body {
     background-color: #FFF5E1;
-    background-image: url('../img/fondo-svg.svg');
+    background-image: url('/img/fondo-svg.svg');
     /* Ruta ajustada */
     background-size: cover;
     color: #5D4037;
