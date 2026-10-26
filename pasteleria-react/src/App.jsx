@@ -16,6 +16,7 @@ import Carrito from './Pages/Carrito'
 import Login from './Pages/Login'
 import Registro from './Pages/Registro'
 import RecuperarPassword from './Pages/RecuperarPassword'
+import DetalleProducto from './Pages/DetalleProducto'
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/registro" element={<Registro />} />
         <Route path="/recuperar-password" element={<RecuperarPassword />} />
+        <Route path="/producto/:id" element={<DetalleProducto />} />
         <Route path="*" element={
           <main className="container py-5 text-center">
             <h1>Página no encontrada</h1>
