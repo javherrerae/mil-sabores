@@ -1,86 +1,27 @@
-
 import { useState } from 'react'
 import ProductoCard from '../components/ProductoCard'
 import FiltrosCatalogo from '../components/FiltrosCatalogo'
 import { useSearchParams } from 'react-router-dom'
+import { obtenerProductos, obtenerCategorias } from '../data/productos'
+import { agregarAlCarrito } from '../data/carrito'
 
 import '../css/estilos.css'
 import '../css/bootstrap.min.css'
 
-// Productos originales de Mil Sabores
-const productos = [
-  {
-    id: 'TT001',
-    nombre: 'Yogurt Fresa',
-    descripcion: 'Torta Circular de Yogurt sabor a fresa',
-    precio: 22990,
-    imagen: '/img/tortas/tortap1.jpg',
-    forma: 'circular',
-    tamano: 'mediano',
-    diet: 'tradicional'
-  },
-  {
-    id: 'TT002',
-    nombre: 'Torta Amor',
-    descripcion: 'Torta Circular de Mil Hojas con manjar',
-    precio: 24990,
-    imagen: '/img/tortas/tortap2.jpg',
-    forma: 'circular',
-    tamano: 'grande',
-    diet: 'tradicional'
-  },
-  {
-    id: 'TT003',
-    nombre: 'Selva Negra',
-    descripcion: 'Torta Circular de Selva Negra',
-    precio: 20990,
-    imagen: '/img/tortas/tortap3.jpg',
-    forma: 'circular',
-    tamano: 'pequeno',
-    diet: 'sin-azucar'
-  },
-  {
-    id: 'TT004',
-    nombre: 'Crema Piña',
-    descripcion: 'Torta Circular de Crema Piña',
-    precio: 22990,
-    imagen: '/img/tortas/tortap4.jpg',
-    forma: 'circular',
-    tamano: 'mediano',
-    diet: 'tradicional'
-  },
-  {
-    id: 'TT005',
-    nombre: 'Lúcuma Manjar',
-    descripcion: 'Torta Circular de Lúcumas y Manjar',
-    precio: 24990,
-    imagen: '/img/tortas/tortap5.jpg',
-    forma: 'circular',
-    tamano: 'grande',
-    diet: 'tradicional'
-  },
-  {
-    id: 'TT006',
-    nombre: 'Trufa Chocolate',
-    descripcion: 'Torta Circular de Trufa Chocolate',
-    precio: 20990,
-    imagen: '/img/tortas/tortap6.jpg',
-    forma: 'circular',
-    tamano: 'pequeno',
-    diet: 'sin-azucar'
-  }
-]
-
 const filtrosIniciales = {
   forma: [],
   tamano: [],
-  diet: []
+  diet: [],
+  categoria: []
 }
 
 function Catalogo() {
+  const [productos] = useState(obtenerProductos)
   const [filtros, setFiltros] = useState(filtrosIniciales)
   const [mensaje, setMensaje] = useState('')
   const [searchParams] = useSearchParams()
+  const [categorias] = useState(obtenerCategorias)
+  const [soloOfertas, setSoloOfertas] = useState(false)
 
 const busqueda = (searchParams.get('q') || '')
   .trim()
@@ -104,11 +45,8 @@ const busqueda = (searchParams.get('q') || '')
 
   // Limpiar todos los filtros
   function limpiarFiltros() {
-    setFiltros({
-      forma: [],
-      tamano: [],
-      diet: []
-    })
+    setFiltros(filtrosIniciales)
+    setSoloOfertas(false)
   }
 
   // Filtrar productos según la selección
@@ -129,39 +67,16 @@ const busqueda = (searchParams.get('q') || '')
     )
   })
 
-  return cumpleBusqueda && cumpleFiltros
+  const cumpleOferta = !soloOfertas || producto.descuento > 0
+
+  return cumpleBusqueda && cumpleFiltros && cumpleOferta
 })
 
   // Guardar el producto en localStorage
-  function agregarAlCarrito(producto) {
+    // Agregar el producto al carrito y mostrar un mensaje
+  function manejarAgregar(producto) {
     try {
-      const guardado = localStorage.getItem('carritoMilSabores') 
-      const datos = guardado ? JSON.parse(guardado) : []
-      const carrito = Array.isArray(datos) ? datos : []
-
-      const existente = carrito.find(
-        (item) => item.id === producto.id
-      )
-
-      if (existente) {
-        existente.cantidad += 1
-      } else {
-        carrito.push({
-          id: producto.id,
-          nombre: producto.nombre,
-          precio: producto.precio,
-          imagen: producto.imagen,
-          cantidad: 1
-        })
-      }
-
-      localStorage.setItem(
-        'carritoMilSabores',
-        JSON.stringify(carrito)
-      )
-      
-      window.dispatchEvent(new Event('carrito-actualizado'))
-
+      agregarAlCarrito(producto)
       setMensaje(`${producto.nombre} añadido al carrito`)
     } catch {
       setMensaje('No fue posible guardar el carrito')
@@ -174,6 +89,9 @@ const busqueda = (searchParams.get('q') || '')
         filtros={filtros}
         onCambiar={cambiarFiltro}
         onLimpiar={limpiarFiltros}
+        categorias={categorias}
+        soloOfertas={soloOfertas}
+        onSoloOfertas={setSoloOfertas}
       />
 
       <section className="vista-productos">
@@ -197,7 +115,7 @@ const busqueda = (searchParams.get('q') || '')
               <ProductoCard
                 key={producto.id}
                 producto={producto}
-                onAgregar={agregarAlCarrito}
+                onAgregar={manejarAgregar}
               />
             ))
           ) : (

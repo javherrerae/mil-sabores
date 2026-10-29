@@ -28,12 +28,32 @@ const grupos = [
   }
 ]
 
-function FiltrosCatalogo({ filtros, onCambiar, onLimpiar }) {
+function FiltrosCatalogo({
+  filtros,
+  onCambiar,
+  onLimpiar,
+  categorias = [],
+  soloOfertas,
+  onSoloOfertas
+}) {
+
+  // El grupo de categorías se arma con los datos, no está escrito a mano
+  const grupoCategoria = {
+    titulo: 'Categoría',
+    campo: 'categoria',
+    opciones: categorias.map((categoria) => ({
+      valor: categoria,
+      texto: categoria
+    }))
+  }
+
+  const todosLosGrupos = [grupoCategoria, ...grupos]
+  
   return (
     <aside className="barra-filtros">
       <h3>Filtrar por</h3>
 
-      {grupos.map((grupo) => (
+      {todosLosGrupos.map((grupo) => (
         <div className="grupo-filtro" key={grupo.campo}>
           <h4>{grupo.titulo}</h4>
 
@@ -54,6 +74,19 @@ function FiltrosCatalogo({ filtros, onCambiar, onLimpiar }) {
         </div>
       ))}
 
+      <div className="grupo-filtro">
+        <h4>Ofertas</h4>
+        <label>
+          <input
+            type="checkbox"
+            className="filtro-cb"
+            checked={soloOfertas}
+            onChange={(evento) => onSoloOfertas(evento.target.checked)}
+          />
+          Solo ofertas
+        </label>
+      </div>
+      
       <button
         type="button"
         className="btn-marron"

@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import CarritoItem from '../components/CarritoItem'
-import FormularioCarrito from '../components/FormularioCarrito'
 
 import '../css/estilos.css'
 import '../css/bootstrap.min.css'
@@ -143,7 +142,14 @@ function Carrito() {
                     ${total.toLocaleString('es-CL')}
                   </strong>
                 </h4>
-
+                
+                <Link
+                  to="/checkout"
+                  className="btn-marron text-center mt-3"
+                >
+                  Ir a pagar
+                </Link>
+                
                 <Link
                   to="/catalogo"
                   className="btn-marron text-center mt-3"
@@ -152,15 +158,6 @@ function Carrito() {
                 </Link>
 
               </div>
-            </div>
-          </div>
-
-          {/* FORMULARIO DE PEDIDO */}
-          <div className="row justify-content-end mt-4">
-            <div className="col-12 col-md-6">
-
-              <FormularioCarrito total={total} />
-
             </div>
           </div>
 
