@@ -1,3 +1,5 @@
+import { calcularPrecioFinal } from './productos'
+
 const CLAVE = 'carritoMilSabores'
 
 // Agrega un producto al carrito
@@ -14,7 +16,7 @@ export function agregarAlCarrito(producto, cantidad = 1) {
     carrito.push({
       id: producto.id,
       nombre: producto.nombre,
-      precio: producto.precio,
+      precio: calcularPrecioFinal(producto),
       imagen: producto.imagen,
       cantidad: cantidad
     })
@@ -23,5 +25,21 @@ export function agregarAlCarrito(producto, cantidad = 1) {
   localStorage.setItem(CLAVE, JSON.stringify(carrito))
 
   // Aviso a la aplicación que el carrito ha cambiado 
+  window.dispatchEvent(new Event('carrito-actualizado'))
+}
+
+// READ: devuelve los productos guardados en el carrito
+export function obtenerCarrito() {
+  try {
+    const datos = JSON.parse(localStorage.getItem(CLAVE) || '[]')
+    return Array.isArray(datos) ? datos : []
+  } catch {
+    return []
+  }
+}
+
+// DELETE: vacía el carrito y avisa al contador del header
+export function vaciarCarrito() {
+  localStorage.removeItem(CLAVE)
   window.dispatchEvent(new Event('carrito-actualizado'))
 }
