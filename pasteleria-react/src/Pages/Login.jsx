@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { iniciarSesion } from '../lib/authDemo'
+import { esAdmin, iniciarSesion } from '../lib/authDemo'
 import '../css/estilos.css'
 
 function Login() {
@@ -26,7 +26,7 @@ function Login() {
         setError('Correo o contraseña incorrectos.')
         return
       }
-      navigate('/Perfil', { replace: true })
+      navigate(esAdmin() ? '/admin' : '/Perfil', { replace: true })
     } catch {
       setError('No fue posible iniciar sesión en esta demostración.')
     } finally {

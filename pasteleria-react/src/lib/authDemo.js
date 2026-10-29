@@ -4,6 +4,7 @@
 const USUARIOS_KEY = 'milSaboresReactUsuariosDemo'
 const SESION_KEY = 'milSaboresReactSesionDemo'
 const EVENTO_SESION = 'mil-sabores-sesion'
+const CORREO_ADMIN = 'admin@milsabores.cl'
 
 function leerJSON(key, predeterminado) {
   try {
@@ -84,6 +85,7 @@ export async function registrarUsuario({ nombre, email, fechaNac, password, codi
     telefono: '',
     salt,
     verificador,
+    rol: correo === CORREO_ADMIN ? 'admin' : 'cliente',
     beneficios
   })
 
@@ -111,6 +113,11 @@ export function obtenerPerfil() {
   const sesion = obtenerSesion()
   if (!sesion) return null
   return leerUsuarios().find((item) => item.email === sesion.email) ?? null
+}
+
+export function esAdmin() {
+  const perfil = obtenerPerfil()
+  return perfil?.rol === 'admin'
 }
 
 export function actualizarPerfil({ nombre, email, telefono }) {
