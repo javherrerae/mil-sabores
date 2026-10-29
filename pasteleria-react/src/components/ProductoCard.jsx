@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
+import PrecioProducto from './PrecioProducto'
 
 function ProductoCard({ producto, onAgregar }) {
-  const precioFormateado = producto.precio.toLocaleString('es-CL')
 
   return (
     <div className="tarjeta-catalogo">
@@ -22,9 +22,7 @@ function ProductoCard({ producto, onAgregar }) {
 
       <p>{producto.descripcion}</p>
 
-      <p className="precio">
-        ${precioFormateado}
-      </p>
+      <PrecioProducto producto={producto} />
 
       <button
         type="button"

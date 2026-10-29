@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { obtenerProductoPorId } from '../data/productos'
 import { agregarAlCarrito } from '../data/carrito'
+import PrecioProducto from '../components/PrecioProducto'
 
 import '../css/estilos.css'
 import '../css/bootstrap.min.css'
@@ -61,7 +62,7 @@ function DetalleProducto() {
         <div className="col-12 col-md-6">
           <h1 className="fuente-artistica">{producto.nombre}</h1>
           <p>{producto.descripcion}</p>
-          <p className="precio">${producto.precio.toLocaleString('es-CL')}</p>
+          <PrecioProducto producto={producto} />
 
           <div className="d-flex align-items-center gap-2 mb-3">
             <button

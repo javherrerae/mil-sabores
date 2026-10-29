@@ -10,7 +10,9 @@ const productosIniciales = [
     imagen: '/img/tortas/tortap1.jpg',
     forma: 'circular',
     tamano: 'mediano',
-    diet: 'tradicional'
+    diet: 'tradicional',
+    categoria: 'Frutales',
+    descuento: 0
   },
   {
     id: 'TT002',
@@ -20,7 +22,9 @@ const productosIniciales = [
     imagen: '/img/tortas/tortap2.jpg',
     forma: 'circular',
     tamano: 'grande',
-    diet: 'tradicional'
+    diet: 'tradicional',
+    categoria: 'Clasicas',
+    descuento: 10
   },
   {
     id: 'TT003',
@@ -30,7 +34,9 @@ const productosIniciales = [
     imagen: '/img/tortas/tortap3.jpg',
     forma: 'circular',
     tamano: 'pequeno',
-    diet: 'sin-azucar'
+    diet: 'sin-azucar',
+    categoria: 'Chocolate',
+    descuento: 20
   },
   {
     id: 'TT004',
@@ -40,7 +46,9 @@ const productosIniciales = [
     imagen: '/img/tortas/tortap4.jpg',
     forma: 'circular',
     tamano: 'mediano',
-    diet: 'tradicional'
+    diet: 'tradicional',
+    categoria: 'Frutales',
+    descuento: 0
   },
   {
     id: 'TT005',
@@ -50,7 +58,9 @@ const productosIniciales = [
     imagen: '/img/tortas/tortap5.jpg',
     forma: 'circular',
     tamano: 'grande',
-    diet: 'tradicional'
+    diet: 'tradicional',
+    categoria: 'Clasicas',
+    descuento: 15
   },
   {
     id: 'TT006',
@@ -60,16 +70,18 @@ const productosIniciales = [
     imagen: '/img/tortas/tortap6.jpg',
     forma: 'circular',
     tamano: 'pequeno',
-    diet: 'sin-azucar'
+    diet: 'sin-azucar',
+    categoria: 'Chocolate',
+    descuento: 0
   }
 ]
 
-// Función para guardar la lista completa en localStorage
+// Funcion para guardar la lista completa en localStorage
 function guardar(lista) {
   localStorage.setItem(CLAVE, JSON.stringify(lista))
 }
 
-// Función que devuelve todos los productos
+// Funcion que devuelve todos los productos
 export function obtenerProductos() {
   const guardado = localStorage.getItem(CLAVE)
 
@@ -82,19 +94,19 @@ export function obtenerProductos() {
   return [...productosIniciales]
 }
 
-// Función que devuelve un solo producto según su id
+// Funcion que devuelve un solo producto segun su id
 export function obtenerProductoPorId(id) {
   return obtenerProductos().find((producto) => producto.id === id)
 }
 
-// Función para agregar un producto nuevo a la lista
+// Funcion para agregar un producto nuevo a la lista
 export function crearProducto(producto) {
   const lista = [...obtenerProductos(), producto]
   guardar(lista)
   return producto
 }
 
-// Función que cambia solo los campos indicados de un producto
+// Funcion que cambia solo los campos indicados de un producto
 export function actualizarProducto(id, cambios) {
   const lista = obtenerProductos().map((producto) =>
     producto.id === id ? { ...producto, ...cambios } : producto
@@ -102,8 +114,25 @@ export function actualizarProducto(id, cambios) {
   guardar(lista)
 }
 
-// Función para eliminar un producto de la lista
+// Funcion para eliminar un producto de la lista
 export function eliminarProducto(id) {
   const lista = obtenerProductos().filter((producto) => producto.id !== id)
   guardar(lista)
+}
+
+// Funcion que devuelve la lista de categorias, sin repetir
+export function obtenerCategorias() {
+  const categorias = obtenerProductos().map((producto) => producto.categoria)
+  return [...new Set(categorias)]
+}
+
+// Fucnion que devuelve solo los productos que estan en oferta
+export function obtenerOfertas() {
+  return obtenerProductos().filter((producto) => producto.descuento > 0)
+}
+
+// Funcion que calcula el precio con el descuento aplicado
+export function calcularPrecioFinal(producto) {
+  const descuento = producto.descuento || 0
+  return Math.round(producto.precio * (1 - descuento / 100))
 }

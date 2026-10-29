@@ -2,7 +2,7 @@ import { useState } from 'react'
 import ProductoCard from '../components/ProductoCard'
 import FiltrosCatalogo from '../components/FiltrosCatalogo'
 import { useSearchParams } from 'react-router-dom'
-import { obtenerProductos } from '../data/productos'
+import { obtenerProductos, obtenerCategorias } from '../data/productos'
 import { agregarAlCarrito } from '../data/carrito'
 
 import '../css/estilos.css'
@@ -11,7 +11,8 @@ import '../css/bootstrap.min.css'
 const filtrosIniciales = {
   forma: [],
   tamano: [],
-  diet: []
+  diet: [],
+  categoria: []
 }
 
 function Catalogo() {
@@ -19,6 +20,8 @@ function Catalogo() {
   const [filtros, setFiltros] = useState(filtrosIniciales)
   const [mensaje, setMensaje] = useState('')
   const [searchParams] = useSearchParams()
+  const [categorias] = useState(obtenerCategorias)
+  const [soloOfertas, setSoloOfertas] = useState(false)
 
 const busqueda = (searchParams.get('q') || '')
   .trim()
@@ -42,11 +45,8 @@ const busqueda = (searchParams.get('q') || '')
 
   // Limpiar todos los filtros
   function limpiarFiltros() {
-    setFiltros({
-      forma: [],
-      tamano: [],
-      diet: []
-    })
+    setFiltros(filtrosIniciales)
+    setSoloOfertas(false)
   }
 
   // Filtrar productos según la selección
@@ -67,7 +67,9 @@ const busqueda = (searchParams.get('q') || '')
     )
   })
 
-  return cumpleBusqueda && cumpleFiltros
+  const cumpleOferta = !soloOfertas || producto.descuento > 0
+
+  return cumpleBusqueda && cumpleFiltros && cumpleOferta
 })
 
   // Guardar el producto en localStorage
@@ -87,6 +89,9 @@ const busqueda = (searchParams.get('q') || '')
         filtros={filtros}
         onCambiar={cambiarFiltro}
         onLimpiar={limpiarFiltros}
+        categorias={categorias}
+        soloOfertas={soloOfertas}
+        onSoloOfertas={setSoloOfertas}
       />
 
       <section className="vista-productos">
