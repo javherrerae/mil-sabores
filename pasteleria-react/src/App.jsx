@@ -21,8 +21,6 @@ import Login from './Pages/Login'
 import Registro from './Pages/Registro'
 import RecuperarPassword from './Pages/RecuperarPassword'
 import DetalleProducto from './Pages/DetalleProducto'
-import Categorias from './Pages/Categorias'
-import Ofertas from './Pages/Ofertas'
 import Checkout from './Pages/Checkout'
 import CompraExitosa from './Pages/CompraExitosa'
 import CompraFallida from './Pages/CompraFallida'
@@ -48,8 +46,6 @@ function App() {
         <Route path="/registro" element={<Registro />} />
         <Route path="/recuperar-password" element={<RecuperarPassword />} />
         <Route path="/producto/:id" element={<DetalleProducto />} />
-        <Route path="/categorias" element={<Categorias />} />
-        <Route path="/ofertas" element={<Ofertas />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/compra-exitosa/:id" element={<CompraExitosa />} />
         <Route path="/compra-fallida" element={<CompraFallida />} />
